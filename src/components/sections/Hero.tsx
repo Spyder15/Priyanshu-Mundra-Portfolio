@@ -24,7 +24,7 @@ const Hero = () => {
           transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.3 }}
         >
           <img
-            src="/images/priyanshu-photo.png"
+            src={`${import.meta.env.BASE_URL}images/priyanshu-photo.png`}
             alt="Priyanshu Mundra"
             className="w-full h-full object-cover"
           />
@@ -52,7 +52,7 @@ const Hero = () => {
 
         <div className="w-full flex flex-col gap-3 mt-6">
           <a
-            href="/Priyanshu_Mundra_Resume.pdf"
+            href={`${import.meta.env.BASE_URL}Priyanshu_Mundra_Resume.pdf`}
             download
             className="bg-custom-green w-full py-3 rounded-xl border-2 border-black font-bold shadow-neo-sm hover:translate-y-1 hover:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
