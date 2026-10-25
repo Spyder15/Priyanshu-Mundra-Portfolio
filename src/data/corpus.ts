@@ -85,6 +85,24 @@ export const corpus: readonly CorpusChunk[] = [
     content: 'A multi-tenant restaurant management platform covering ordering, table management, billing and owner analytics, with real-time order flow between waiters, kitchen and billing.',
   },
   {
+    id: 'project-public',
+    title: 'Open-source projects',
+    source: 'projects.md',
+    content: 'Public projects on GitHub (Spyder15): Crypto Flow Radar, a Binance perpetuals scanner with trend confirmation, an EMA screener, sector flow and fair-value-gap levels, live on GitHub Pages. Nexus Graph, a graph-backed expert and collaboration finder on CognoDB with skill search, shortest introduction paths and team building. NFT Certificate, a live app that issues certificates as NFTs. Also Multi-Sig-Wallet in Solidity, Online IDE and a ChatGPT assistant.',
+  },
+  {
+    id: 'hackathons',
+    title: 'Hackathons and awards',
+    source: 'achievements.md',
+    content: 'Priyanshu won Best Chatbot Hack at the Travelers hackathon with an AI customer-support chatbot, and Best Google Cloud Hack with a Google Cloud AI app. He also took part in the Frankfurt School DeFi Talent Program and HackClub RAIT SoC.',
+  },
+  {
+    id: 'availability',
+    title: 'Availability and focus',
+    source: 'about-and-experience.md',
+    content: 'Priyanshu is open to backend, AI and blockchain engineering opportunities and is based in Gurugram, India. He is comfortable owning a system end to end, from architecture and cost control to leading a small team, and uses AI dev tools like Claude, GitHub Copilot and Cursor daily to move faster.',
+  },
+  {
     id: 'contact',
     title: 'Contact',
     source: 'contact-links.md',

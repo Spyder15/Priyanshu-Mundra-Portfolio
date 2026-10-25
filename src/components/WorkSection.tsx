@@ -12,7 +12,7 @@ const projectItems = projectsData as readonly ProjectItem[]
 const projectDates = projectItems.map((project) => project.startedOn)
 const sweepDuration = 310
 const titleDuration = 420
-const initialProjectIndex = 3
+const initialProjectIndex = 5
 
 type WorkSectionProps = {
   onNavigate: (path: string) => void

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spyder15.github.io/Priyanshu-Mundra-Portfolio/sitemap.xml

@@ -13,8 +13,17 @@
       "Real-time order flow between waiters, kitchen and billing.",
       "Reporting dashboards for owners."
     ],
-    "hooks": ["Multi-tenant", "Real-time orders", "Owner analytics"],
-    "tags": ["Node.js", "TypeScript", "SQL", "Docker"],
+    "hooks": [
+      "Multi-tenant",
+      "Real-time orders",
+      "Owner analytics"
+    ],
+    "tags": [
+      "Node.js",
+      "TypeScript",
+      "SQL",
+      "Docker"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
@@ -34,16 +43,55 @@
       "Wallet connection and transaction status in the UI.",
       "Creator tools for collection setup and metadata."
     ],
-    "hooks": ["Smart contracts", "Wallet connect", "Creator dashboard"],
-    "tags": ["Solidity", "TypeScript", "Web3", "IPFS"],
+    "hooks": [
+      "Smart contracts",
+      "Wallet connect",
+      "Creator dashboard"
+    ],
+    "tags": [
+      "Solidity",
+      "TypeScript",
+      "Web3",
+      "IPFS"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
     "external": true
   },
   {
-    "id": "zebraswap",
+    "id": "nft-certificate",
     "number": "03",
+    "date": "Mar 2024",
+    "startedOn": "2024-03-10",
+    "title": "NFT Certificate",
+    "eyebrow": "Web3 · Live",
+    "oneLiner": "Tamper-proof certificates issued as NFTs.",
+    "description": "A web app that issues certificates as NFTs, so anyone can verify who earned what without trusting a middleman.",
+    "points": [
+      "Certificates minted on-chain and verifiable by anyone.",
+      "Simple issuing flow for organisers.",
+      "Deployed live on Vercel."
+    ],
+    "hooks": [
+      "On-chain proof",
+      "Live demo",
+      "Open source"
+    ],
+    "tags": [
+      "JavaScript",
+      "Web3",
+      "NFT",
+      "Vercel"
+    ],
+    "href": "https://certificate-nft.vercel.app/",
+    "repository": "https://github.com/Spyder15/NFT_Certificate",
+    "linkLabel": "Visit live demo",
+    "external": true
+  },
+  {
+    "id": "zebraswap",
+    "number": "04",
     "date": "Aug 2024",
     "startedOn": "2024-08-05",
     "title": "ZebraSwap DeFi DEX",
@@ -55,8 +103,17 @@
       "Backend services for pricing and indexing.",
       "Worked in a Dubai-based product team."
     ],
-    "hooks": ["DEX protocol", "Liquidity pools", "Dubai team"],
-    "tags": ["Solidity", "Node.js", "DeFi", "AWS"],
+    "hooks": [
+      "DEX protocol",
+      "Liquidity pools",
+      "Dubai team"
+    ],
+    "tags": [
+      "Solidity",
+      "Node.js",
+      "DeFi",
+      "AWS"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
@@ -64,7 +121,7 @@
   },
   {
     "id": "polink-wallet",
-    "number": "04",
+    "number": "05",
     "date": "Sep 2024",
     "startedOn": "2024-09-01",
     "title": "PolluxChain + Polink Wallet",
@@ -76,8 +133,17 @@
       "Led the engineering team through release.",
       "Security-first wallet flows."
     ],
-    "hooks": ["Wallet", "Chain tooling", "CTO-led"],
-    "tags": ["Blockchain", "TypeScript", "Mobile", "Security"],
+    "hooks": [
+      "Wallet",
+      "Chain tooling",
+      "CTO-led"
+    ],
+    "tags": [
+      "Blockchain",
+      "TypeScript",
+      "Mobile",
+      "Security"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
@@ -85,7 +151,7 @@
   },
   {
     "id": "support-chatbot",
-    "number": "05",
+    "number": "06",
     "date": "Jan 2025",
     "startedOn": "2025-01-20",
     "title": "AI Customer-Support Chatbot",
@@ -97,8 +163,17 @@
       "Grounded answers with source references.",
       "Won Best Chatbot Hack."
     ],
-    "hooks": ["Best Chatbot Hack", "RAG", "Grounded answers"],
-    "tags": ["Python", "LangChain", "Pinecone", "OpenAI"],
+    "hooks": [
+      "Best Chatbot Hack",
+      "RAG",
+      "Grounded answers"
+    ],
+    "tags": [
+      "Python",
+      "LangChain",
+      "Pinecone",
+      "OpenAI"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
@@ -106,7 +181,7 @@
   },
   {
     "id": "gcloud-ai-app",
-    "number": "06",
+    "number": "07",
     "date": "Jun 2025",
     "startedOn": "2025-06-12",
     "title": "Google Cloud AI App",
@@ -118,11 +193,80 @@
       "Serverless backend deployed with CI/CD.",
       "Won Best Google Cloud Hack."
     ],
-    "hooks": ["Best Google Cloud Hack", "Serverless", "CI/CD"],
-    "tags": ["Python", "GCP", "FastAPI", "Docker"],
+    "hooks": [
+      "Best Google Cloud Hack",
+      "Serverless",
+      "CI/CD"
+    ],
+    "tags": [
+      "Python",
+      "GCP",
+      "FastAPI",
+      "Docker"
+    ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
     "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "nexus-graph",
+    "number": "08",
+    "date": "Aug 2026",
+    "startedOn": "2026-08-05",
+    "title": "Nexus Graph",
+    "eyebrow": "Open source",
+    "oneLiner": "Find who in an org can help, and how to reach them.",
+    "description": "A graph-backed expert and collaboration finder on CognoDB (openCypher over Bolt) with skill search, shortest introduction paths and team building.",
+    "points": [
+      "Skill Finder reaches people within two introductions.",
+      "Path Finder returns the shortest chain between any two people.",
+      "Team Builder assembles the smallest team covering required skills."
+    ],
+    "hooks": [
+      "Graph database",
+      "Path finding",
+      "Team builder"
+    ],
+    "tags": [
+      "JavaScript",
+      "openCypher",
+      "Graph DB",
+      "Bolt"
+    ],
+    "href": "https://github.com/Spyder15/nexus-graph-app",
+    "repository": "https://github.com/Spyder15/nexus-graph-app",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "crypto-flow-radar",
+    "number": "09",
+    "date": "Sep 2026",
+    "startedOn": "2026-09-20",
+    "title": "Crypto Flow Radar",
+    "eyebrow": "Live product",
+    "oneLiner": "A Binance perpetuals scanner with trend confirmation.",
+    "description": "A scanner for Binance perpetual futures with trend confirmation, an EMA screener, sector flow and fair-value-gap levels.",
+    "points": [
+      "Scans perpetual markets for confirmed trends.",
+      "EMA screener and sector flow views.",
+      "Fair-value-gap levels for entries."
+    ],
+    "hooks": [
+      "Binance perps",
+      "EMA screener",
+      "Sector flow"
+    ],
+    "tags": [
+      "JavaScript",
+      "Trading",
+      "Binance API",
+      "GitHub Pages"
+    ],
+    "href": "https://spyder15.github.io/crypto-flow-radar/",
+    "repository": "https://github.com/Spyder15/crypto-flow-radar",
+    "linkLabel": "Visit live product",
     "external": true
   }
 ]
