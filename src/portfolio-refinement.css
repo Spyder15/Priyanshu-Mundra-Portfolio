@@ -1,0 +1,435 @@
+/* A single visual system, based on the original portfolio. */
+:root { --paper-solid: #fcf7f0; --ink: #27231f; --red: #af4636; --red-dark: #91392e; }
+.portfolio-site { background: rgb(var(--theme-surface-rgb, 247 239 229)); }
+.landing-section { padding: 25px clamp(28px,5.5vw,100px); background: radial-gradient(ellipse at 12% 16%,rgb(var(--theme-surface-rgb, 255 253 249)) 0%,transparent 55%),linear-gradient(125deg,rgb(var(--theme-surface-rgb, 250 243 235)),rgb(var(--theme-surface-rgb, 241 225 210))); }
+.portfolio-nav { width: min(1370px,100%); margin-inline: auto; }
+.portfolio-wordmark { font-size: 19px; letter-spacing: .025em; }
+.portfolio-nav nav a { font-size: 13px; }
+.landing-orbit { opacity: .48; width: 64vw; right: -16vw; top: -15vw; }
+.landing-orbit span { display: none; }
+.landing-summary { max-width: 430px; margin: 32px 0 0 0; font-size: 16px; line-height: 1.7; color: rgb(var(--theme-muted-rgb, 114 99 88)); }
+.landing-actions { margin: 28px 0 0; gap: 24px; flex-wrap: wrap; }
+.primary-link { padding: 15px 20px; font-size: 12px; box-shadow: 0 8px 22px rgb(var(--theme-shadow-rgb, 145 57 46) / 0.070588235); }
+.text-link { font-size: 12px; }
+.landing-footer { width: min(1370px,100%); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 20px; border-top: 1px solid rgb(var(--theme-line-rgb, 183 159 136) / 0.16862745); }
+.landing-status { margin: 0; color: rgb(var(--theme-muted-rgb, 122 108 96)); font-size: 12px; display: flex; align-items: center; gap: 9px; }
+.landing-status > span { width: 5px; height: 5px; border-radius: 50%; background: rgb(var(--theme-secondary-rgb, 96 122 80)); }
+.scroll-cue { font-size: 10px; }
+.section-navigator { right: 10px; padding: 4px; box-shadow: none; border: 0; background: rgb(var(--theme-surface-rgb, 252 247 240) / 0.65098039); }
+.section-navigator a { width: 22px; height: 22px; font-size: 9px; }
+
+/* Paired tactile surfaces: a career card stack and a continuous project wheel. */
+.tactile-work { padding: 65px clamp(28px,5.5vw,100px); background: radial-gradient(ellipse at 14% 65%,rgb(var(--theme-surface-rgb, 230 233 222) / 0.53333333),transparent 55%),rgb(var(--theme-surface-rgb, 247 242 233)); }
+.tactile-work .split-work-layout { flex: 0; width: min(1370px,100%); margin-block: auto; gap: clamp(60px,8vw,125px); align-items: start; }
+.tactile-work .work-mobile-panel { display: block; padding: 0; min-height: 0; }
+.tactile-work .projects-panel { border: 0; }
+.tactile-work .split-panel-intro { display: flex; align-items: baseline; justify-content: space-between; margin: 0 0 40px; gap: 20px; }
+.tactile-work .split-panel-intro h2 { font-size: clamp(39px,3.2vw,50px); line-height: 1; letter-spacing: -.045em; }
+.tactile-work .view-all-projects { position: static; padding: 7px 0; border: 0; background: none; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 400; white-space: nowrap; }
+.tactile-work .project-view-stack { height: auto; min-height: 480px; max-height: none; }
+.tactile-work .project-selector-view { grid-template-rows: auto auto; align-content: start; }
+.career-deck { padding-right: 22px; }
+.career-dates { display: flex; align-items: center; justify-content: space-between; margin-bottom: 50px; position: relative; }
+.career-dates::before { content: ''; position: absolute; height: 1px; background: rgb(var(--theme-surface-alt-rgb, 203 205 191)); left: 5px; right: 5px; top: 9px; }
+.career-dates button { position: relative; display: flex; align-items: center; flex-direction: column; gap: 12px; border: 0; padding: 4px 0; color: rgb(var(--theme-muted-rgb, 122 128 112)); background: transparent; font-size: 12px; min-width: 36px; }
+.career-dates button > span { width: 10px; height: 10px; border: 2px solid rgb(var(--theme-line-rgb, 247 242 233)); box-shadow: 0 0 0 1px rgb(var(--theme-shadow-rgb, 183 188 170)); border-radius: 50%; background: rgb(var(--theme-surface-rgb, 247 242 233)); transition: background 250ms,box-shadow 250ms; }
+.career-dates button[aria-selected='true'] { color: rgb(var(--theme-accent-rgb, 155 72 54)); }
+.career-dates button[aria-selected='true'] > span { background: rgb(var(--theme-accent-rgb, 175 70 54)); box-shadow: 0 0 0 1px rgb(var(--theme-shadow-rgb, 175 70 54)); }
+.career-stack { display: grid; perspective: 1100px; padding-bottom: 24px; touch-action: pan-y; }
+.career-card { grid-area: 1/1; min-width: 0; padding: 30px; border: 1px solid rgb(var(--theme-line-rgb, 212 214 201)); border-radius: 15px; background: linear-gradient(140deg,rgb(var(--theme-surface-rgb, 255 253 247)),rgb(var(--theme-surface-rgb, 240 241 231))); box-shadow: 0 12px 28px rgb(var(--theme-shadow-rgb, 57 65 50) / 0.043137255); transform-origin: center 85%; transform: translate3d(calc(var(--depth) * 10px),calc(var(--depth) * 12px),calc(var(--depth) * -36px)) rotateY(calc(var(--depth) * -3deg)); transition: transform 650ms cubic-bezier(.22,1,.36,1),box-shadow 650ms,background 650ms; }
+.career-card:not(.is-current) { background: rgb(var(--theme-surface-rgb, 231 233 220)); pointer-events: none; }
+.career-card-content { opacity: 0; transform: translateY(8px); transition: opacity 180ms,transform 400ms; }
+.career-card.is-current .career-card-content { opacity: 1; transform: none; transition: opacity 450ms 100ms,transform 650ms; }
+.career-card-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 11px; color: rgb(var(--theme-secondary-rgb, 94 109 82)); }
+.career-current { font-size: 10px; color: rgb(var(--theme-secondary-rgb, 83 107 67)); padding: 4px 7px; border: 1px solid rgb(var(--theme-line-rgb, 189 199 172)); border-radius: 20px; }
+.career-card h3 { margin: 24px 0 10px; color: rgb(var(--theme-ink-rgb, 48 57 42)); font: 400 clamp(28px,2.5vw,38px)/1.07 'Newsreader',serif; letter-spacing: -.035em; }
+.career-card time { font-size: 11px; color: rgb(var(--theme-muted-rgb, 122 129 112)); }
+.career-card p { margin: 25px 0 0; color: rgb(var(--theme-secondary-rgb, 93 103 84)); font-size: 13px; line-height: 1.8; max-width: 440px; }
+.career-proof { margin-top: 22px; padding-top: 15px; border-top: 1px solid rgb(var(--theme-line-rgb, 216 221 206)); font-size: 12px; color: rgb(var(--theme-secondary-rgb, 83 103 71)); }
+.career-navigation { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; font-size: 12px; color: rgb(var(--theme-secondary-rgb, 83 98 75)); font-variant-numeric: tabular-nums; }
+.career-navigation i { color: rgb(var(--theme-muted-rgb, 147 153 137)); font-style: normal; margin-left: 5px; }
+.smooth-reel-stage { min-width: 0; }
+.smooth-reel { --reel-spacing: 110px; display: grid; grid-template-columns: minmax(0,1fr); align-items: center; min-width: 0; outline-offset: 8px; }
+.reel-aperture { height: 378px; position: relative; overflow: hidden; touch-action: pan-x pinch-zoom; cursor: grab; user-select: none; mask-image: linear-gradient(transparent,#000 12%,#000 88%,transparent); }
+.reel-aperture:active { cursor: grabbing; }
+.reel-item { position: absolute; top: 50%; left: 0; width: 100%; display: grid; grid-template-columns: 27px minmax(0,1fr); align-items: center; gap: 14px; padding: 16px 4px; border: 0; background: transparent; text-align: left; transform-origin: center center; cursor: inherit; will-change: transform,opacity; }
+.reel-item[aria-hidden='true'] { pointer-events: none; }
+.reel-number { color: rgb(var(--theme-accent-rgb, 170 85 66)); font-size: 11px; font-variant-numeric: tabular-nums; }
+.reel-item strong { display: block; color: rgb(var(--theme-ink-rgb, 53 64 46)); font: 400 clamp(26px,2.45vw,38px)/1.08 'Newsreader',serif; letter-spacing: -.025em; }
+.reel-item small { display: block; margin-top: 10px; max-width: 400px; color: rgb(var(--theme-secondary-rgb, 109 121 97)); font-size: 12px; line-height: 1.55; }
+.reel-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid rgb(var(--theme-line-rgb, 212 216 201)); padding-top: 20px; margin-top: 12px; }
+.reel-hint { font-size: 11px; color: rgb(var(--theme-muted-rgb, 133 140 124)); }
+.mobile-reel-hint { display: none; }
+.reel-open { display: inline-flex; align-items: center; gap: 20px; border: 0; background: transparent; color: rgb(var(--theme-secondary-rgb, 66 84 58)); font-size: 13px; min-height: 40px; white-space: nowrap; padding: 0; }
+.reel-open span { display: grid; place-items: center; background: rgb(var(--theme-secondary-rgb, 88 107 75)); color: #fffdf4; border-radius: 50%; width: 35px; height: 35px; font-size: 17px; transition: transform 200ms,background 200ms; }
+.reel-open:hover span { transform: rotate(45deg); background: rgb(var(--theme-accent-rgb, 175 70 54)); }
+/* Give the opened project readable, substantial type within its existing panel. */
+.tactile-work .project-focus-view { gap: clamp(26px,3.4vh,36px); }
+.tactile-work .project-focus-copy h2 { font-size: clamp(42px,4.6vw,64px); line-height: 1.02; }
+.tactile-work .project-focus-copy > p:last-child { margin-top: 20px; font-size: clamp(18px,1.4vw,20px); line-height: 1.65; color: rgb(var(--theme-muted-rgb, 95 90 81)); }
+.tactile-work .project-focus-highlights { gap: 16px; }
+.tactile-work .project-focus-highlights li { padding-left: 20px; font-size: clamp(16px,1.2vw,18px); line-height: 1.6; color: rgb(var(--theme-muted-rgb, 95 90 81)); }
+.tactile-work .project-focus-header > div { font-size: 14px; line-height: 1.3; }
+.tactile-work .project-focus-header button { min-height: 40px; font-size: 12px; }
+.tactile-work .project-focus-metrics li { padding: 18px 12px; font-size: 15px; line-height: 1.45; }
+.tactile-work .project-focus-footer { padding-top: 18px; }
+.tactile-work .project-focus-footer nav { gap: 24px; }
+.tactile-work .project-focus-footer a { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; font-size: 15px; }
+@media (max-width: 550px) {
+  .tactile-work .project-focus-view { gap: 26px; }
+  .tactile-work .project-focus-copy h2 { font-size: clamp(36px,10.5vw,46px); }
+  .tactile-work .project-focus-copy > p:last-child { font-size: 17px; }
+  .tactile-work .project-focus-highlights li { font-size: 16px; }
+  .tactile-work .project-focus-header { gap: 12px; }
+  .tactile-work .project-focus-header > div { gap: 8px; font-size: 12px; }
+  .tactile-work .project-focus-header button { padding-inline: 10px; font-size: 11px; }
+  .tactile-work .project-focus-metrics li { padding: 15px 8px; font-size: 13px; }
+  .tactile-work .project-focus-footer a { font-size: 14px; }
+}
+
+/* Short desktop screens (a laptop with a bookmarks bar): tighten the rhythm so the
+   opened project, links included, still fits the screen the section snaps to. */
+@media (min-width: 851px) and (max-height: 880px) {
+  .tactile-work { padding-block: clamp(28px,5svh,44px); }
+  .tactile-work .split-panel-intro { margin-bottom: clamp(20px,3.6svh,32px); }
+  .tactile-work .project-focus-view { gap: clamp(14px,2.4svh,22px); }
+  .tactile-work .project-focus-header { padding-bottom: 10px; }
+  .tactile-work .project-focus-copy h2 { font-size: clamp(40px,min(4.6vw,7.2svh),60px); }
+  .tactile-work .project-focus-copy > p:last-child { margin-top: 12px; font-size: clamp(16px,min(1.4vw,2.45svh),19px); line-height: 1.6; }
+  .tactile-work .project-focus-metrics li { padding-block: clamp(11px,1.8svh,16px); }
+  .tactile-work .project-focus-highlights { gap: clamp(8px,1.4svh,12px); }
+  .tactile-work .project-focus-highlights li { font-size: clamp(15px,min(1.2vw,2.25svh),17px); line-height: 1.55; }
+  .tactile-work .project-focus-footer { padding-top: 12px; }
+  .tactile-work .project-focus-footer a { min-height: 36px; }
+}
+
+/* Carry the same paper, type and quiet spacing into the remaining views. */
+.rag-section { background: radial-gradient(ellipse at 80% 20%,rgb(var(--theme-surface-rgb, 240 223 207)),transparent 65%),rgb(var(--theme-surface-rgb, 248 240 231)); }
+.rag-section .background-art { opacity: .25; }
+.rag-section .portfolio-card { border-radius: 22px; border-color: rgb(var(--theme-line-rgb, 189 165 140) / 0.25098039); box-shadow: 0 24px 70px rgb(var(--theme-shadow-rgb, 113 81 57) / 0.078431373); }
+.about-section, .all-projects-section { background: rgb(var(--theme-surface-rgb, 249 243 235)); padding-inline: clamp(28px,5.5vw,100px); }
+.about-section .section-header, .all-projects-section .section-header { justify-content: space-between; }
+.about-statement h2, .all-projects-intro h2 { font-size: clamp(48px,5.5vw,80px); line-height: .97; }
+.about-statement > p:not(.section-kicker), .all-projects-intro > p:not(.section-kicker) { font-size: 15px; line-height: 1.8; }
+.experience-list article { padding-block: 24px; border-color: rgb(var(--theme-line-rgb, 214 202 187)); }
+.experience-list h3 { font-size: 26px; line-height: 1.15; }
+.experience-list p { font-size: 13px; line-height: 1.75; }.experience-list strong, .experience-list time { font-size: 11px; }
+.all-projects-grid { gap: 20px; }
+.all-projects-grid article { border: 1px solid rgb(var(--theme-line-rgb, 218 205 188)); border-radius: 15px; background: rgb(var(--theme-surface-rgb, 255 250 244)); box-shadow: none; padding: 25px; transition: transform 250ms,border-color 250ms; }
+.all-projects-grid article:hover { transform: translateY(-4px); border-color: rgb(var(--theme-line-rgb, 174 152 124)); box-shadow: none; }
+.all-projects-grid article h3 { font-size: 30px; }.all-projects-grid article > strong { font-size: 14px; line-height: 1.65; }
+.all-projects-grid article > ul li { font-size: 12px; }.all-projects-grid article header, .all-projects-grid article footer { font-size: 11px; }
+.route-back-link, .route-header-home { font-size: 12px; }.contact-footer nav a { font-size: 12px; }
+@keyframes instrument-in { from { opacity: 0; transform: translateY(10px) rotateX(-3deg); } to { opacity: 1; transform: none; } }
+@keyframes instrument-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes introduction-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) { .landing-copy { animation: introduction-in 800ms cubic-bezier(.22,1,.36,1) both; } }
+@media (max-width: 1100px) { .tactile-work .split-work-layout { gap: 45px; }.career-card { padding: 24px; }.smooth-reel { --reel-spacing: 115px; }.reel-item strong { font-size: 29px; }.reel-hint { max-width: 110px; line-height: 1.5; } }
+@media (max-width: 850px) {
+  .landing-section { padding: 20px 28px; }.landing-orbit { width: 130vw; right: -65vw; top: 35%; }
+  .landing-footer { display: flex; padding-top: 16px; }.landing-status { font-size: 11px; }.scroll-cue { display: none; }
+  .tactile-work { min-height: 0; padding: 55px 28px; }.tactile-work .split-work-layout { display: grid; grid-template-columns: 1fr; gap: 60px; }
+  .tactile-work .work-mobile-panel { width: min(620px,100%); margin-inline: auto; }
+  .tactile-work .projects-panel { padding-top: 40px; border-top: 1px solid rgb(var(--theme-line-rgb, 212 216 201)); }
+  .tactile-work .split-panel-intro { margin-bottom: 30px; }.tactile-work .split-panel-intro h2 { font-size: 40px; }
+  .tactile-work .project-view-stack { min-height: 480px; }.career-card { padding: 26px; }
+  .career-card h3 { font-size: 32px; }.career-card p { font-size: 14px; }
+  .reel-item strong { font-size: 32px; }.reel-item small { font-size: 13px; }
+  .about-layout { grid-template-columns: 1fr; }.all-projects-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 550px) {
+  .portfolio-wordmark { font-size: 16px; }.portfolio-nav nav { gap: 16px; }.portfolio-nav nav a { font-size: 12px; }.portfolio-nav nav .nav-contact { display: none; }
+  .landing-summary { font-size: 14px; }.landing-actions { gap: 20px; }.primary-link { font-size: 11px; }.text-link { font-size: 11px; }
+  .tactile-work { padding: 45px 24px; }.tactile-work .view-all-projects { font-size: 11px; }
+  .career-card { padding: 23px; }.career-card h3 { font-size: 30px; }.career-card p { font-size: 13px; line-height: 1.75; }
+  .career-card-meta { font-size: 10px; }.career-proof { font-size: 11px; line-height: 1.5; }
+  .smooth-reel { --reel-spacing: 118px; grid-template-columns: minmax(0,1fr); }.reel-aperture { height: 374px; }
+  .reel-item { grid-template-columns: 20px minmax(0,1fr); gap: 9px; }.reel-item strong { font-size: 27px; }.reel-item small { font-size: 11px; }
+  .reel-hint { font-size: 10px; max-width: 130px; }.reel-open { font-size: 12px; gap: 10px; }
+  .desktop-reel-hint { display: none; }.mobile-reel-hint { display: inline; }
+  .about-statement h2,.all-projects-intro h2 { font-size: 49px; }.experience-list h3 { font-size: 24px; }.experience-list p { font-size: 12px; }
+  .all-projects-grid article { padding: 22px; }.all-projects-grid article h3 { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { .career-card,.career-card-content,.career-card.is-current .career-card-content,.project-selector-view,.project-detail-view { transition: none; } }
+
+@media (max-width: 550px) { .portfolio-nav { gap: 20px; } .portfolio-wordmark { flex-shrink: 0; white-space: nowrap; } .portfolio-nav nav a { line-height: 1.35; white-space: nowrap; } }
+
+.about-header .route-header-home, .all-projects-header .route-header-home { position: static; font-size: 12px; }
+.about-header > p, .all-projects-header > p { font-size: 11px; }
+
+.reel-summary { display: none; }
+@media (max-width: 550px) {
+  .smooth-reel { --reel-spacing: 100px; }
+  .reel-aperture { height: 330px; }
+  .reel-item small { display: none; }
+  .reel-summary { display: block; min-height: 76px; margin: 0; padding: 6px 36px 12px 29px; color: rgb(var(--theme-secondary-rgb, 103 116 90)); font-size: 13px; line-height: 1.7; }
+  .reel-footer { margin-top: 8px; }
+}
+
+/* Settle near a section boundary while keeping long sections freely scrollable. */
+.portfolio-site { scroll-snap-type: y proximity; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-site { scroll-snap-type: none; }
+}
+
+/* Project details belong to the page flow, never a nested scroll box. */
+.tactile-work .project-focus-view { height: auto; min-height: 0; max-height: none; overflow: visible; padding-right: 0; }
+.tactile-work .project-detail-view { align-self: start; overflow: visible; }
+.tactile-work .project-view-stack { position: relative; overflow: visible; }
+.tactile-work .project-view-stack:not(.is-detail-open) .project-detail-view { position: absolute; inset: 0; }
+
+/* The centre seat stays still while the barrel rolls through it. */
+.reel-seat { position: absolute; inset: 50% 0 auto; height: 110px; transform: translateY(-50%); pointer-events: none; border-radius: 11px; background: linear-gradient(90deg,rgb(var(--theme-surface-rgb, 217 223 196) / 0.23921569),rgb(var(--theme-surface-rgb, 253 250 243) / 0.30196078) 80%,transparent); border-left: 2px solid rgb(var(--theme-line-rgb, 171 89 64)); }
+.reel-item { padding-left: 12px; }
+.reel-item[aria-pressed='true'] .reel-number { color: rgb(var(--theme-accent-rgb, 170 71 49)); font-weight: 600; }
+.reel-item[aria-pressed='true'] strong { color: rgb(var(--theme-ink-rgb, 41 61 36)); }
+/* A small project-date pointer shares the experience rail without taking it over. */
+.career-timeline { position: relative; padding-top: 34px; }
+.project-timeline-pointer { position: absolute; top: 0; left: calc(18px + (100% - 36px) * var(--project-position)); color: rgb(var(--theme-accent-rgb, 166 82 58)); pointer-events: auto; }
+.project-marker-label { display: flex; align-items: center; gap: 7px; width: max-content; padding: 4px 7px; border: 1px solid rgb(var(--theme-line-rgb, 200 157 131) / 0.29019608); border-radius: 5px; background: rgb(var(--theme-surface-rgb, 250 245 236)); font-size: 10px; line-height: 1.2; transform: translateX(calc(var(--project-position) * -100%)); transition: color 180ms,background 180ms; }
+.project-marker-label b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.project-timeline-pointer::after { content: ''; position: absolute; top: 27px; left: -4px; width: 0; height: 0; border: 4px solid transparent; border-top: 6px solid rgb(var(--theme-line-rgb, 166 82 58)); }
+.project-timeline-pointer.is-open .project-marker-label { background: rgb(var(--theme-accent-rgb, 166 82 58)); color: #fffaf2; }
+.career-dates button[aria-selected='true'] { color: rgb(var(--theme-secondary-rgb, 75 103 66)); }
+.career-dates button[aria-selected='true'] > span { background: rgb(var(--theme-secondary-rgb, 98 123 79)); box-shadow: 0 0 0 1px rgb(var(--theme-shadow-rgb, 98 123 79)); }
+
+/* Horizontal dragging lifts the top card; a committed gesture peels it away. */
+.career-stack { cursor: grab; user-select: none; }
+.career-stack.is-dragging { cursor: grabbing; }
+.career-stack.is-dragging .career-card.is-current { transition: none; box-shadow: 0 24px 42px rgb(var(--theme-shadow-rgb, 57 65 50) / 0.14509804); }
+.career-card.is-peeling { transition: transform 240ms cubic-bezier(.25,.75,.35,1),opacity 210ms ease; pointer-events: none; }
+.career-card.is-peeling .career-card-content { opacity: 1; transform: none; transition: none; }
+.career-drag-hint { color: rgb(var(--theme-muted-rgb, 137 145 127)); font-size: 11px; }
+@media (max-width: 550px) {
+  .reel-seat { height: 92px; }
+  .reel-item { padding-left: 9px; grid-template-columns: 18px minmax(0,1fr); }
+  .project-marker-label { font-size: 10px; }
+  .career-drag-hint { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .career-stack.is-dragging .career-card.is-current { transform: none !important; }
+  .project-marker-label { transition: none; }
+}
+
+/* Quiet gesture cues replace the two sets of navigation arrows. */
+.reel-hint,.career-drag-hint { display: inline-flex; align-items: center; gap: 9px; }
+.gesture-cue { flex: 0 0 auto; display: inline-block; position: relative; width: 20px; height: 10px; border: 1px solid rgb(var(--theme-line-rgb, 166 175 153) / 0.43921569); border-radius: 10px; }
+.gesture-cue::after { content: ''; position: absolute; width: 3px; height: 3px; top: 2.5px; left: 7.5px; border-radius: 50%; background: rgb(var(--theme-secondary-rgb, 121 138 104)); animation: gesture-bop-x 3.6s ease-in-out infinite; }
+.gesture-cue.is-vertical { width: 10px; height: 20px; }
+.gesture-cue.is-vertical::after { left: 2.5px; top: 7.5px; animation-name: gesture-bop-y; }
+.career-deck:hover .gesture-cue::after,.career-deck:focus-within .gesture-cue::after,.smooth-reel-stage:hover .gesture-cue::after,.smooth-reel-stage:focus-within .gesture-cue::after { animation-play-state: paused; }
+@keyframes gesture-bop-x { 0%,60%,100% { transform: translateX(0); } 72% { transform: translateX(4px); } 86% { transform: translateX(-3px); } }
+@keyframes gesture-bop-y { 0%,60%,100% { transform: translateY(0); } 72% { transform: translateY(4px); } 86% { transform: translateY(-3px); } }
+
+
+/* Invite the first drag once, only after the initial card comes into view. */
+.career-stack { position: relative; }
+.career-swipe-invitation { position: absolute; top: -17px; left: 50%; z-index: 6; display: flex; align-items: center; gap: 13px; width: max-content; max-width: calc(100% - 12px); padding: 12px 18px; border: 1px solid rgb(var(--theme-line-rgb, 113 129 99)); border-radius: 14px; background: rgb(var(--theme-deep-rgb, 53 71 45)); color: #fffaf1; box-shadow: 0 10px 26px rgb(var(--theme-shadow-rgb, 40 57 35) / 0.15686275); pointer-events: none; transform: translate(-50%,-50%); }
+.career-swipe-invitation::after { content: ''; position: absolute; bottom: -5px; left: calc(50% - 5px); width: 9px; height: 9px; background: rgb(var(--theme-deep-rgb, 53 71 45)); border-right: 1px solid rgb(var(--theme-line-rgb, 113 129 99)); border-bottom: 1px solid rgb(var(--theme-line-rgb, 113 129 99)); transform: rotate(45deg); }
+.career-swipe-invitation strong { display: block; font-size: 14px; font-weight: 500; line-height: 1.3; }
+.career-swipe-invitation small { display: block; margin-top: 3px; font-size: 11px; line-height: 1.4; color: #dbe4d2; }
+.swipe-invitation-icon { position: relative; flex: 0 0 35px; height: 30px; }
+.swipe-invitation-icon::before,.swipe-invitation-icon span { content: ''; position: absolute; width: 22px; height: 28px; border: 1px solid rgb(var(--theme-line-rgb, 225 234 215)); border-radius: 5px; }
+.swipe-invitation-icon::before { left: 7px; top: 3px; opacity: .4; transform: rotate(9deg); }
+.swipe-invitation-icon span { left: 4px; background: rgb(var(--theme-secondary-rgb, 82 101 71)); transform: rotate(-7deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .career-swipe-invitation { animation: swipe-invitation-in 320ms cubic-bezier(.22,1,.36,1) both,swipe-invitation-out 240ms ease 5250ms forwards; }
+  .swipe-invitation-icon span { animation: swipe-card-icon 1600ms ease-in-out 450ms 2; }
+  .career-stack.is-hinting .career-card.is-current { animation: career-first-drag 1500ms cubic-bezier(.4,0,.2,1) 650ms 1; }
+}
+@keyframes swipe-invitation-in { from { opacity: 0; transform: translate(-50%,calc(-50% + 10px)) scale(.94); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+@keyframes swipe-invitation-out { to { opacity: 0; transform: translate(-50%,calc(-50% - 5px)); } }
+@keyframes swipe-card-icon { 0%,100% { transform: translateX(0) rotate(-7deg); } 35% { transform: translateX(8px) rotate(5deg); } 70% { transform: translateX(-4px) rotate(-12deg); } }
+@keyframes career-first-drag { 0%,100% { transform: translate3d(0,0,0); } 35% { transform: translate3d(12px,-3px,8px) rotateZ(1deg); } 70% { transform: translate3d(-7px,-1px,4px) rotateZ(-.6deg); } }
+
+/* Clear the neighbouring rows first, then lift the chosen title and unfold details. */
+.tactile-work .project-selector-view,.tactile-work .project-detail-view { transform: none; transition: none; }
+.tactile-work .is-detail-open .project-selector-view { opacity: 1; transform: none; visibility: hidden; transition: none; animation: project-selector-exit 310ms step-end; }
+.tactile-work .is-detail-open .project-detail-view { opacity: 1; transform: none; visibility: visible; }
+.project-focus-copy h2 { transform-origin: top left; position: relative; z-index: 2; }
+.is-detail-open .project-focus-copy h2 { visibility: visible; }
+.is-detail-open .reel-item[aria-pressed='true'] strong { visibility: hidden; }
+.is-detail-open .projects-intro,.is-detail-open .reel-footer,.is-detail-open .reel-summary,.is-detail-open .reel-seat,
+.is-detail-open .reel-item[aria-pressed='true'] .reel-number,.is-detail-open .reel-item[aria-pressed='true'] small { animation: project-surroundings-out 220ms cubic-bezier(.4,0,.8,.4) both; }
+.is-detail-open .reel-item[aria-hidden='false']:not([aria-pressed='true']) { animation: project-option-sweep 290ms cubic-bezier(.3,0,.7,1) both; }
+.is-detail-open .reel-item[aria-hidden='false']:not([aria-pressed='true']) .reel-item-copy { animation: project-option-stretch 290ms ease-in both; }
+.is-detail-open .project-focus-header,.is-detail-open .project-focus-copy > p,.is-detail-open .project-focus-metrics,.is-detail-open .project-focus-highlights,.is-detail-open .project-focus-footer { animation: project-details-unfold 200ms cubic-bezier(.22,1,.36,1) both; }
+.is-detail-open .reel-seat { animation-name: project-seat-out; }
+.is-detail-open .project-focus-header { animation-delay: 450ms; }
+.is-detail-open .project-focus-copy > p { animation-delay: 560ms; }
+.is-detail-open .project-focus-metrics { animation-delay: 580ms; }
+.is-detail-open .project-focus-highlights { animation-delay: 600ms; }
+.is-detail-open .project-focus-footer { animation-delay: 620ms; }
+@keyframes project-selector-exit { from { visibility: visible; } to { visibility: hidden; } }
+@keyframes project-option-sweep { from { translate: 0 0; } to { translate: calc(-100% - 40px) 0; } }
+@keyframes project-option-stretch { from { transform: none; } to { transform: skewX(8deg) scaleX(1.04); } }
+@keyframes project-surroundings-out { from { translate: 0 0; opacity: 1; } to { translate: -85px 0; transform: skewX(-7deg); opacity: 0; } }
+@keyframes project-seat-out { from { translate: 0 0; opacity: 1; } to { translate: -85px 0; opacity: 0; } }
+@keyframes project-details-unfold { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .gesture-cue::after,.is-detail-open .projects-intro,.is-detail-open .reel-footer,.is-detail-open .reel-summary,.is-detail-open .reel-seat,
+  .is-detail-open .reel-item-copy,.is-detail-open .reel-number,.is-detail-open .reel-item small,
+  .is-detail-open .project-focus-header,.is-detail-open .project-focus-copy > p,.is-detail-open .project-focus-metrics,.is-detail-open .project-focus-highlights,.is-detail-open .project-focus-footer { animation: none; }
+  .tactile-work .is-detail-open .project-selector-view,
+  .is-detail-open .reel-item[aria-hidden='false']:not([aria-pressed='true']),
+  .is-detail-open .reel-item[aria-hidden='false']:not([aria-pressed='true']) .reel-item-copy { animation: none; transition: none; }
+}
+
+
+/* Back retraces the same movement, keeping the selected title continuous. */
+.tactile-work .is-returning .project-selector-view { visibility: visible; animation: none; }
+.is-returning .reel-item[aria-hidden='false']:not([aria-pressed='true']) { animation: project-option-return 290ms cubic-bezier(.3,0,.7,1) both; }
+.is-returning .reel-item[aria-hidden='false']:not([aria-pressed='true']) .reel-item-copy { animation: project-copy-return 290ms ease-out both; }
+.is-returning .projects-intro,.is-returning .reel-footer,.is-returning .reel-summary,
+.is-returning .reel-item[aria-pressed='true'] .reel-number,.is-returning .reel-item[aria-pressed='true'] small { animation: project-surroundings-return 290ms cubic-bezier(.22,1,.36,1) both; }
+.is-returning .reel-seat { animation: project-seat-return 290ms cubic-bezier(.22,1,.36,1) both; }
+.is-returning .project-focus-header,.is-returning .project-focus-copy > p,.is-returning .project-focus-metrics,.is-returning .project-focus-highlights,.is-returning .project-focus-footer { animation: project-details-fold 160ms ease-in both; }
+.is-returning .reel-item[aria-hidden='false']:not([aria-pressed='true']),
+.is-returning .reel-item[aria-hidden='false']:not([aria-pressed='true']) .reel-item-copy,
+.is-returning .projects-intro,.is-returning .reel-footer,.is-returning .reel-summary,.is-returning .reel-seat,
+.is-returning .reel-item[aria-pressed='true'] .reel-number,.is-returning .reel-item[aria-pressed='true'] small { animation-delay: var(--return-reveal-delay,420ms); }
+@keyframes project-option-return { from { translate: var(--return-translate,calc(-100% - 40px) 0); } to { translate: 0 0; } }
+@keyframes project-copy-return { from { transform: var(--return-transform,skewX(8deg) scaleX(1.04)); } to { transform: none; } }
+@keyframes project-surroundings-return { from { translate: var(--return-translate,-85px 0); transform: var(--return-transform,none); opacity: var(--return-opacity,0); } to { translate: 0 0; transform: none; opacity: 1; } }
+@keyframes project-seat-return { from { translate: var(--return-translate,-85px 0); opacity: var(--return-opacity,0); } to { translate: 0 0; opacity: 1; } }
+@keyframes project-details-fold { from { transform: var(--return-transform,none); opacity: var(--return-opacity,1); } to { transform: translateY(16px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .tactile-work .is-returning .project-selector-view,.is-returning .reel-item,.is-returning .reel-item-copy,
+  .is-returning .projects-intro,.is-returning .reel-footer,.is-returning .reel-summary,.is-returning .reel-seat,
+  .is-returning .reel-number,.is-returning .reel-item small,.is-returning .project-focus-header,
+  .is-returning .project-focus-copy > p,.is-returning .project-focus-metrics,.is-returning .project-focus-highlights,.is-returning .project-focus-footer { animation: none; }
+}
+
+
+/* On phones, each tactile surface gets a full page of its own. */
+@media (max-width: 850px) {
+  .tactile-work { --mobile-work-padding: clamp(28px,4svh,44px); padding: 0; min-height: 0; scroll-snap-align: none; }
+  .tactile-work .split-work-layout { display: block; width: 100%; margin: 0; }
+  .tactile-work .work-mobile-panel { display: flex; flex-direction: column; width: 100%; min-height: 100svh; padding: var(--mobile-work-padding) clamp(20px,5vw,40px); scroll-snap-align: start; }
+  .tactile-work .work-mobile-panel > * { width: min(620px,100%); margin-inline: auto; }
+  .tactile-work .projects-panel { border-top: 1px solid rgb(var(--theme-line-rgb, 212 216 201)); }
+  .tactile-work .split-panel-intro { flex: 0 0 auto; margin-bottom: clamp(24px,4svh,36px); }
+  .tactile-work .career-deck { display: flex; flex: 1; flex-direction: column; padding-right: 14px; }
+  .tactile-work .career-stack { flex: 1; }
+  .tactile-work .career-card { min-height: 300px; }
+  .tactile-work .career-card h3 { font-size: clamp(32px,9vw,42px); }
+  .tactile-work .career-card p { font-size: clamp(13px,3.8vw,16px); }
+  .tactile-work .career-navigation { flex: 0 0 auto; }
+  .tactile-work .project-view-stack { position: relative; flex: 1; min-height: calc(100svh - 2 * var(--mobile-work-padding)); align-self: stretch; }
+  .tactile-work .project-selector-view { height: max(560px,calc(100svh - 2 * var(--mobile-work-padding))); align-self: start; grid-template-rows: auto minmax(0,1fr); align-content: stretch; }
+  .tactile-work .project-view-stack:not(.is-detail-open) .project-detail-view { position: absolute; inset: 0; }
+  .tactile-work .smooth-reel-stage { display: flex; flex-direction: column; min-height: 0; }
+  .tactile-work .smooth-reel { --reel-spacing: 145px; display: flex; flex: 1; flex-direction: column; min-height: 330px; }
+  .tactile-work .reel-aperture { flex: 1; width: 100%; height: auto; min-height: 330px; }
+  .tactile-work .reel-item strong { font-size: clamp(29px,7.8vw,38px); }
+  .tactile-work .reel-summary { flex: 0 0 auto; }
+  .tactile-work .reel-footer { flex: 0 0 auto; }
+}
+
+@media (max-width: 850px) and (max-height: 700px) {
+  .tactile-work .smooth-reel { --reel-spacing: 112px; }
+}
+@media (max-width: 850px) and (min-height: 900px) {
+  .tactile-work .smooth-reel { --reel-spacing: 164px; }
+}
+
+/* Desktop: the projects column takes the experience column's height. Its footer sits on the
+   "Drag to explore" line, and the wheel centres on the band of the timeline and cards. */
+@media (min-width: 851px) {
+  .tactile-work .split-work-layout { align-items: stretch; }
+  .tactile-work .projects-panel { display: flex; flex-direction: column; }
+  .tactile-work .project-view-stack { flex: 1; }
+  .tactile-work .project-selector-view { display: flex; flex-direction: column; }
+  .tactile-work .smooth-reel-stage { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  /* The footer is taller than "Drag to explore"; the top padding evens the wheel's space. */
+  .tactile-work .project-view-stack { position: relative; --demo-h: clamp(84px,min(13svh,9vw),118px); }
+  .tactile-work .smooth-reel { --reel-spacing: 112px; flex: 1; display: flex; flex-direction: column; align-items: stretch; }
+  .tactile-work .reel-aperture { flex: 1; height: auto; min-height: 260px; mask-image: linear-gradient(transparent,#000 6%,#000 94%,transparent); }
+  .tactile-work .reel-seat { height: 124px; }
+  /* Both views keep the same space above their footer for the project's drawing, which sits
+     outside them so opening a project leaves it playing in place. */
+  .tactile-work .reel-demo { display: block; flex: 0 0 var(--demo-h); }
+  .tactile-work .project-demo-dock { display: flex; position: absolute; left: 0; right: 0; bottom: 61px; height: var(--demo-h); align-items: center; justify-content: center; pointer-events: none; }
+  .tactile-work .project-detail-view { align-self: stretch; }
+  .tactile-work .project-focus-view { display: flex; flex-direction: column; gap: clamp(10px,1.4svh,13px); }
+  .tactile-work .project-focus-copy h2 { font-size: clamp(36px,min(3.2vw,5.6svh),46px); }
+  .tactile-work .project-focus-copy > p:last-child { margin-top: 10px; font-size: clamp(14px,min(1vw,2svh),16px); line-height: 1.55; }
+  .tactile-work .project-focus-metrics li { padding: clamp(8px,1.3svh,12px) 8px; font-size: clamp(12px,.95vw,13.5px); }
+  .tactile-work .project-focus-highlights { gap: 8px; margin-bottom: var(--demo-h); }
+  .tactile-work .project-focus-highlights li { font-size: clamp(13.5px,min(.95vw,1.9svh),15px); line-height: 1.5; }
+  /* Same box as the wheel's footer, so the links sit on the 'Drag to explore' line. */
+  .tactile-work .project-focus-footer { box-sizing: border-box; display: flex; align-items: center; min-height: 61px; margin-top: auto; margin-bottom: -12px; padding-top: 20px; }
+  .tactile-work .project-focus-footer a { min-height: 40px; }
+  .tactile-work .reel-item small { max-width: 520px; font-size: 13px; }
+  .tactile-work .reel-footer { margin-bottom: -12px; }
+}
+
+/* Outline drawings of each project, in the accent colour. Desktop only. */
+.reel-demo, .project-demo-dock { display: none; }
+.project-demo { width: 100%; max-width: 600px; height: auto; max-height: 100%; overflow: visible; font-family: 'DM Sans', system-ui, sans-serif; animation: demo-cycle var(--cycle, 6500ms) linear both; }
+.project-demo rect, .project-demo circle, .project-demo ellipse, .project-demo path { fill: none; stroke: rgb(var(--theme-accent-rgb, 175 70 54) / 0.8); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.project-demo .demo-soft { stroke: rgb(var(--theme-accent-rgb, 175 70 54) / 0.45); }
+.project-demo .demo-faint { stroke: rgb(var(--theme-accent-rgb, 175 70 54) / 0.3); }
+.project-demo .demo-strong { stroke: rgb(var(--theme-accent-rgb, 175 70 54)); stroke-width: 1.8; }
+.project-demo .demo-text { fill: rgb(var(--theme-accent-rgb, 175 70 54) / 0.9); stroke: none; font-size: 11px; }
+.project-demo .demo-small { font-size: 9.5px; }
+.project-demo .demo-muted { fill: rgb(var(--theme-accent-rgb, 175 70 54) / 0.55); }
+.project-demo .d-draw { stroke-dasharray: 1; animation: demo-draw 650ms cubic-bezier(.4,0,.2,1) var(--d, 0s) both; }
+.project-demo .d-fade { animation: demo-fade 400ms ease var(--d, 0s) both; }
+.project-demo .d-pop { transform-box: fill-box; transform-origin: center; animation: demo-pop 450ms cubic-bezier(.22,1,.36,1) var(--d, 0s) both; }
+.project-demo .demo-cursor { animation: demo-cursor-win 1.3s cubic-bezier(.3,.7,.3,1) var(--d, 0s) both; }
+.project-demo .demo-cursor.is-loser { animation: demo-cursor-lose 1.9s cubic-bezier(.3,.7,.3,1) var(--d, 0s) both; }
+@keyframes demo-cycle { 0% { opacity: 0; } 4% { opacity: 1; } 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes demo-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes demo-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes demo-pop { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes demo-cursor-win { 0% { opacity: 0; transform: translate(var(--fx), var(--fy)); } 15% { opacity: 1; } 100% { opacity: 1; transform: translate(0, 0); } }
+@keyframes demo-cursor-lose { 0% { opacity: 0; transform: translate(var(--fx), var(--fy)); } 12% { opacity: 1; } 70% { transform: translate(0, 0); } 77% { transform: translate(4px, 0); } 84% { transform: translate(-4px, 0); } 90% { opacity: 1; transform: translate(0, 0); } 100% { opacity: .3; transform: translate(calc(var(--fx) * .2), calc(var(--fy) * .2)); } }
+.project-demo .bee-eye { fill: rgb(var(--theme-accent-rgb, 175 70 54) / 0.8); stroke: none; }
+.project-demo .bee-wing { stroke: rgb(var(--theme-accent-rgb, 175 70 54) / 0.5); transform-box: fill-box; transform-origin: 50% 100%; animation: bee-flap .14s ease-in-out infinite alternate; }
+.project-demo .bee-wing.is-back { animation-delay: -.07s; }
+.project-demo .bee-whole { animation: bee-bob 1.8s ease-in-out infinite; }
+@keyframes bee-flap { from { transform: scaleY(1); } to { transform: scaleY(.35); } }
+@keyframes bee-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.project-demo .demo-tiny { font-size: 8px; }
+.project-demo .hive-thread { stroke-dasharray: 2 3; animation: hive-thread 1.5s ease var(--d, 0s) both; }
+.project-demo .hive-read { animation: hive-read .9s ease var(--d, 0s) both; }
+.project-demo .hive-bee { animation: 5s cubic-bezier(.45,.05,.3,1) var(--d, 0s) both; }
+.project-demo .hive-bee.is-claude { animation-name: bee-claude; }
+.project-demo .hive-bee.is-codex { animation-name: bee-codex; }
+.project-demo .hive-bee.is-hermes { animation-name: bee-hermes; }
+@keyframes hive-thread { 0% { opacity: 0; } 15%, 85% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes hive-read { 0%, 100% { opacity: 0; } 35%, 60% { opacity: 1; } }
+/* Claude flies in, writes in a cell, and leaves once it is done. */
+@keyframes bee-claude { 0% { opacity: 0; transform: translate(40px, 70px); } 8% { opacity: 1; } 26%, 55% { transform: translate(240px, 18px); } 72% { opacity: 1; transform: translate(120px, 4px); } 80%, 100% { opacity: 0; transform: translate(70px, 0); } }
+/* Codex waits on the next cell, watching Claude's, then hops to a fresh one. */
+@keyframes bee-codex { 0% { opacity: 0; transform: translate(560px, 0); } 6% { opacity: 1; } 18%, 56% { transform: translate(360px, 18px); } 66%, 100% { opacity: 1; transform: translate(300px, 52px); } }
+/* Hermes drifts past and reads a note on the way. */
+@keyframes bee-hermes { 0% { opacity: 0; transform: translate(600px, 92px); } 5% { opacity: 1; } 30%, 42% { transform: translate(340px, 52px); } 76% { opacity: 1; transform: translate(90px, 94px); } 86%, 100% { opacity: 0; transform: translate(30px, 96px); } }
+@media (min-width: 851px) { .reel-demo, .project-demo-dock { display: flex; } .reel-demo { display: block; } }
+@media (prefers-reduced-motion: reduce) { .project-demo, .project-demo * { animation: none !important; } }
+@media (min-width: 851px) and (max-width: 1200px) {
+  .tactile-work .project-focus-copy > p:last-child { font-size: 13.5px; }
+  .tactile-work .project-focus-highlights li { font-size: 13px; }
+}
+
+/* Desktop: a quiet hint beside the wheel that it scrolls. */
+.reel-scroll-cue { display: none; }
+@media (min-width: 851px) {
+  .tactile-work .smooth-reel { position: relative; }
+  /* Two chevrons up and two down, left of the selected project, lighting from the middle
+     outwards. They fade out once the wheel has moved. */
+  .tactile-work .reel-scroll-cue { display: block; position: absolute; right: calc(100% + 12px); top: 50%; width: 28px; height: 64px; margin-top: -32px; fill: none; stroke: rgb(var(--theme-accent-rgb, 170 71 49)); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; transition: opacity 500ms ease; }
+  .tactile-work .reel-scroll-cue path { animation: reel-cue 1.8s ease-in-out infinite; }
+  .tactile-work .reel-scroll-cue .is-outer { animation-delay: .24s; }
+  .tactile-work .reel-scroll-cue.is-used { opacity: 0; }
+  /* Back to revolver sits where View project was. */
+  .tactile-work .project-focus-footer { justify-content: space-between; }
+  /* The activity card is a little smaller, so the headline leads. Only the card and its caption
+     are scaled: zoom makes every size fractional, which left the toggles' pills a pixel off
+     centre on 125% displays, so the toggles keep their native whole-pixel sizes. */
+  .activity-focus { width: 84%; justify-self: end; }
+  .activity-focus .activity-card-stack, .activity-focus .activity-caption { zoom: .84; }
+}
+@keyframes reel-cue { 0%, 70%, 100% { opacity: .22; } 35% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .reel-scroll-cue path { animation: none; } }

@@ -1,9 +1,8 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/Priyanshu-Mundra-Portfolio/",
-  plugins: [react(), tailwindcss()],
-});
+  base: '/Priyanshu-Mundra-Portfolio/',
+  plugins: [react()],
+  server: { port: 5173 },
+})
