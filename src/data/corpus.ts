@@ -88,7 +88,7 @@ export const corpus: readonly CorpusChunk[] = [
     id: 'project-public',
     title: 'Open-source projects',
     source: 'projects.md',
-    content: 'Public projects on GitHub (Spyder15): Crypto Flow Radar, a Binance perpetuals scanner with trend confirmation, an EMA screener, sector flow and fair-value-gap levels, live on GitHub Pages. Nexus Graph, a graph-backed expert and collaboration finder on CognoDB with skill search, shortest introduction paths and team building. NFT Certificate, a live app that issues certificates as NFTs. Also Multi-Sig-Wallet in Solidity, Online IDE and a ChatGPT assistant.',
+    content: 'Public projects on GitHub (Spyder15): Crypto Flow Radar, a Binance perpetuals scanner with trend confirmation, an EMA screener, sector flow and fair-value-gap levels, live on GitHub Pages. Nexus Graph, a graph-backed expert and collaboration finder on CognoDB with skill search, shortest introduction paths and team building. NFT Certificate, a live app that issues certificates as NFTs. Also CRONIX Staking, a Web3 staking dApp; JARVIS, a multi-LLM desktop assistant built with Electron and Python; a secure payment withdrawal module in Node.js and TypeScript; a Decentralized Escrow smart contract; an Online IDE; and a ChatGPT Chrome extension.',
   },
   {
     id: 'hackathons',

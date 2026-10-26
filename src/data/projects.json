@@ -60,8 +60,38 @@
     "external": true
   },
   {
-    "id": "nft-certificate",
+    "id": "escrow",
     "number": "03",
+    "date": "Mar 2024",
+    "startedOn": "2024-03-08",
+    "title": "Decentralized Escrow",
+    "eyebrow": "Smart contracts",
+    "oneLiner": "Trustless payments between buyers, sellers and arbitrators.",
+    "description": "A smart-contract escrow system that holds funds until both sides are satisfied, with an arbitrator to settle disputes.",
+    "points": [
+      "Funds locked on-chain until release conditions are met.",
+      "Arbitrator role for disputes.",
+      "Transparent, auditable transactions."
+    ],
+    "hooks": [
+      "Buyer · Seller · Arbitrator",
+      "On-chain escrow",
+      "Solidity"
+    ],
+    "tags": [
+      "Solidity",
+      "JavaScript",
+      "Smart contracts",
+      "Web3"
+    ],
+    "href": "https://github.com/Spyder15/SmartContractEscrow",
+    "repository": "https://github.com/Spyder15/SmartContractEscrow",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "nft-certificate",
+    "number": "04",
     "date": "Mar 2024",
     "startedOn": "2024-03-10",
     "title": "NFT Certificate",
@@ -90,8 +120,66 @@
     "external": true
   },
   {
+    "id": "online-ide",
+    "number": "05",
+    "date": "Mar 2024",
+    "startedOn": "2024-03-28",
+    "title": "Online IDE",
+    "eyebrow": "Developer tool",
+    "oneLiner": "Write code in the browser and run it on the cloud.",
+    "description": "An online IDE that sends your code to a Google server to execute and returns the output in the browser.",
+    "points": [
+      "Run code remotely, no local setup.",
+      "Output returned straight to the editor.",
+      "Built on Google server infrastructure."
+    ],
+    "hooks": [
+      "Browser-based",
+      "Remote execution",
+      "Instant output"
+    ],
+    "tags": [
+      "JavaScript",
+      "Node.js",
+      "Google Cloud"
+    ],
+    "href": "https://github.com/Spyder15/Online_IDE",
+    "repository": "https://github.com/Spyder15/Online_IDE",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "chatgpt-ext",
+    "number": "06",
+    "date": "Apr 2024",
+    "startedOn": "2024-04-03",
+    "title": "ChatGPT Chrome Extension",
+    "eyebrow": "Browser extension",
+    "oneLiner": "Select any text on any page and get a ChatGPT answer.",
+    "description": "A Chrome extension that fetches ChatGPT responses for selected text on any webpage, with click-to-copy answers.",
+    "points": [
+      "Works on any webpage.",
+      "Long questions are truncated for readability.",
+      "Click to copy the response."
+    ],
+    "hooks": [
+      "Any webpage",
+      "Click to copy",
+      "Chrome extension"
+    ],
+    "tags": [
+      "JavaScript",
+      "Chrome Extension",
+      "OpenAI API"
+    ],
+    "href": "https://github.com/Spyder15/ChatGPT_Ext",
+    "repository": "https://github.com/Spyder15/ChatGPT_Ext",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
     "id": "zebraswap",
-    "number": "04",
+    "number": "07",
     "date": "Aug 2024",
     "startedOn": "2024-08-05",
     "title": "ZebraSwap DeFi DEX",
@@ -121,7 +209,7 @@
   },
   {
     "id": "polink-wallet",
-    "number": "05",
+    "number": "08",
     "date": "Sep 2024",
     "startedOn": "2024-09-01",
     "title": "PolluxChain + Polink Wallet",
@@ -151,7 +239,7 @@
   },
   {
     "id": "support-chatbot",
-    "number": "06",
+    "number": "09",
     "date": "Jan 2025",
     "startedOn": "2025-01-20",
     "title": "AI Customer-Support Chatbot",
@@ -181,7 +269,7 @@
   },
   {
     "id": "gcloud-ai-app",
-    "number": "07",
+    "number": "10",
     "date": "Jun 2025",
     "startedOn": "2025-06-12",
     "title": "Google Cloud AI App",
@@ -210,8 +298,98 @@
     "external": true
   },
   {
+    "id": "cronix-staking",
+    "number": "11",
+    "date": "Apr 2026",
+    "startedOn": "2026-04-16",
+    "title": "CRONIX Staking dApp",
+    "eyebrow": "Web3 app",
+    "oneLiner": "A staking dApp with wallet connect and validator views.",
+    "description": "A Vite, React and TypeScript staking dApp with Home, Staking and Validators pages, RainbowKit wallet connection and light and dark themes.",
+    "points": [
+      "Wallet connection with wagmi and viem.",
+      "Mock adapters ready to swap for real chain APIs.",
+      "Light and dark token-based themes."
+    ],
+    "hooks": [
+      "Wallet connect",
+      "Validators",
+      "Light and dark"
+    ],
+    "tags": [
+      "React",
+      "TypeScript",
+      "wagmi",
+      "RainbowKit"
+    ],
+    "href": "https://github.com/Spyder15/cronix_Staking-",
+    "repository": "https://github.com/Spyder15/cronix_Staking-",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "jarvis",
+    "number": "12",
+    "date": "May 2026",
+    "startedOn": "2026-05-08",
+    "title": "JARVIS Virtual Assistant",
+    "eyebrow": "AI assistant",
+    "oneLiner": "A Stark-style desktop assistant powered by multiple LLMs.",
+    "description": "An Electron and Python virtual assistant with a futuristic HUD interface that routes requests across multiple LLM providers.",
+    "points": [
+      "Electron desktop app with a custom HUD.",
+      "Multi-LLM backend in Python.",
+      "Voice-style assistant experience."
+    ],
+    "hooks": [
+      "Multi-LLM",
+      "Electron + Python",
+      "HUD interface"
+    ],
+    "tags": [
+      "Electron",
+      "Python",
+      "LLMs",
+      "JavaScript"
+    ],
+    "href": "https://github.com/Spyder15/virtual-assiatnt",
+    "repository": "https://github.com/Spyder15/virtual-assiatnt",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
+    "id": "withdrawal-module",
+    "number": "13",
+    "date": "Jun 2026",
+    "startedOn": "2026-06-24",
+    "title": "Payment Withdrawal Module",
+    "eyebrow": "Backend",
+    "oneLiner": "Secure and scalable withdrawals for a payments system.",
+    "description": "A Node.js and TypeScript backend module for secure, scalable payment withdrawals, backed by MongoDB and Mongoose.",
+    "points": [
+      "Designed for safe, repeatable withdrawals.",
+      "TypeScript service with MongoDB persistence.",
+      "Documented for quick local setup."
+    ],
+    "hooks": [
+      "Secure",
+      "Scalable",
+      "TypeScript"
+    ],
+    "tags": [
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose"
+    ],
+    "href": "https://github.com/Spyder15/Suff_assi",
+    "repository": "https://github.com/Spyder15/Suff_assi",
+    "linkLabel": "View on GitHub",
+    "external": true
+  },
+  {
     "id": "nexus-graph",
-    "number": "08",
+    "number": "14",
     "date": "Aug 2026",
     "startedOn": "2026-08-05",
     "title": "Nexus Graph",
@@ -241,7 +419,7 @@
   },
   {
     "id": "crypto-flow-radar",
-    "number": "09",
+    "number": "15",
     "date": "Sep 2026",
     "startedOn": "2026-09-20",
     "title": "Crypto Flow Radar",
