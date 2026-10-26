@@ -6,23 +6,22 @@
     "startedOn": "2022-11-15",
     "title": "Restaurant Management SaaS",
     "eyebrow": "SaaS product",
-    "oneLiner": "Orders, tables and kitchen flow in one multi-tenant platform.",
-    "description": "A restaurant management platform covering ordering, table management, billing and analytics, built as a multi-tenant SaaS with a clean service architecture.",
+    "oneLiner": "An online and offline POS for the whole restaurant.",
+    "description": "A full-stack online and offline point-of-sale and operations platform covering end-to-end restaurant workflows, with offline-first sync and a single management dashboard. Built at OranetAI.",
     "points": [
-      "Multi-tenant backend with per-restaurant data isolation.",
-      "Real-time order flow between waiters, kitchen and billing.",
-      "Reporting dashboards for owners."
+      "Offline-first sync so service never stops.",
+      "One dashboard for the entire restaurant.",
+      "Built from scratch with Node.js, React and SQL."
     ],
     "hooks": [
-      "Multi-tenant",
-      "Real-time orders",
-      "Owner analytics"
+      "Offline-first",
+      "Single dashboard",
+      "Built from scratch"
     ],
     "tags": [
       "Node.js",
-      "TypeScript",
-      "SQL",
-      "Docker"
+      "React",
+      "SQL"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
@@ -36,23 +35,23 @@
     "startedOn": "2023-03-10",
     "title": "NFT Minting Platform",
     "eyebrow": "Web3",
-    "oneLiner": "Mint, list and manage NFT collections without touching a terminal.",
-    "description": "An end-to-end NFT minting platform with smart contracts, wallet connection and a creator dashboard for launching collections.",
+    "oneLiner": "Gas-efficient ERC-721 and ERC-1155 minting with upgradeable contracts.",
+    "description": "ERC-721 and ERC-1155 contracts using OpenZeppelin and Beacon Proxy for gas-efficient upgrades, with a wallet-connect minting flow and a Web3 frontend, tested with Truffle and Hardhat.",
     "points": [
-      "Solidity contracts with gas-conscious minting.",
-      "Wallet connection and transaction status in the UI.",
-      "Creator tools for collection setup and metadata."
+      "Beacon Proxy upgrades keep gas costs low.",
+      "Wallet-connect minting flow in React.",
+      "Tested with Truffle and Hardhat."
     ],
     "hooks": [
-      "Smart contracts",
-      "Wallet connect",
-      "Creator dashboard"
+      "ERC-721 / 1155",
+      "Beacon Proxy",
+      "Wallet connect"
     ],
     "tags": [
       "Solidity",
-      "TypeScript",
-      "Web3",
-      "IPFS"
+      "OpenZeppelin",
+      "Web3.js",
+      "React"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
@@ -182,25 +181,24 @@
     "number": "07",
     "date": "Aug 2024",
     "startedOn": "2024-08-05",
-    "title": "ZebraSwap DeFi DEX",
+    "title": "ZebraSwap DeFi DEX & AMM",
     "eyebrow": "DeFi protocol",
-    "oneLiner": "Protocol and backend work for a decentralised exchange.",
-    "description": "Led DeFi protocol work at ZebraSwap in Dubai: swap and liquidity mechanics, backend services and the integrations around them.",
+    "oneLiner": "AMM logic, liquidity pools and yield farming for a DEX.",
+    "description": "Core DeFi protocol components for a decentralised exchange: automated market maker logic, liquidity pools, yield-farming strategies and cross-chain integrations, with an emphasis on secure on-chain execution.",
     "points": [
-      "Swap and liquidity pool mechanics.",
-      "Backend services for pricing and indexing.",
-      "Worked in a Dubai-based product team."
+      "Automated market maker logic.",
+      "Liquidity pools and yield-farming strategies.",
+      "Cross-chain integrations."
     ],
     "hooks": [
-      "DEX protocol",
+      "AMM",
       "Liquidity pools",
-      "Dubai team"
+      "Yield farming"
     ],
     "tags": [
       "Solidity",
-      "Node.js",
-      "DeFi",
-      "AWS"
+      "Web3",
+      "EVM"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
@@ -212,25 +210,25 @@
     "number": "08",
     "date": "Sep 2024",
     "startedOn": "2024-09-01",
-    "title": "PolluxChain + Polink Wallet",
-    "eyebrow": "Blockchain",
-    "oneLiner": "A blockchain and the wallet that makes it usable.",
-    "description": "Technical leadership for the PolluxChain ecosystem and its Polink wallet, from architecture to release.",
+    "title": "PolluxChain & Polink Wallet",
+    "eyebrow": "Layer 1 blockchain",
+    "oneLiner": "A Layer 1 blockchain and the wallet that makes it usable.",
+    "description": "Architected a Layer 1 blockchain and built the backend for Polink, its native crypto wallet: high-throughput services with Redis for caching and job queues, secure wallet APIs and Solidity smart contracts.",
     "points": [
-      "Owned architecture across chain tooling and wallet.",
-      "Led the engineering team through release.",
-      "Security-first wallet flows."
+      "High-throughput backend with Redis caching and queues.",
+      "Secure transaction and wallet APIs.",
+      "Solidity contracts for on-chain logic."
     ],
     "hooks": [
-      "Wallet",
-      "Chain tooling",
-      "CTO-led"
+      "Layer 1 chain",
+      "Redis queues",
+      "Wallet APIs"
     ],
     "tags": [
-      "Blockchain",
-      "TypeScript",
-      "Mobile",
-      "Security"
+      "Node.js",
+      "Redis",
+      "Solidity",
+      "Web3"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
@@ -244,23 +242,23 @@
     "startedOn": "2025-01-20",
     "title": "AI Customer-Support Chatbot",
     "eyebrow": "Hackathon winner",
-    "oneLiner": "Best Chatbot Hack at the Travelers hackathon.",
-    "description": "A retrieval-augmented support assistant that answers from a company's own documents, built in a weekend and awarded Best Chatbot Hack by Travelers.",
+    "oneLiner": "Best Chatbot Hack, sponsored by Travelers.",
+    "description": "A conversational LLM assistant with intent handling and context-aware responses, with an NLP/LLM backend wired to a React frontend for real-time chat. Won Best Chatbot Hack.",
     "points": [
-      "RAG over policy and support documents.",
-      "Grounded answers with source references.",
-      "Won Best Chatbot Hack."
+      "Intent handling and context-aware replies.",
+      "Real-time chat on a React frontend.",
+      "Won Best Chatbot Hack (Travelers)."
     ],
     "hooks": [
       "Best Chatbot Hack",
-      "RAG",
-      "Grounded answers"
+      "Intent handling",
+      "Real-time chat"
     ],
     "tags": [
-      "Python",
-      "LangChain",
-      "Pinecone",
-      "OpenAI"
+      "LLM",
+      "NLP",
+      "Node.js",
+      "React"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
@@ -274,23 +272,21 @@
     "startedOn": "2025-06-12",
     "title": "Google Cloud AI App",
     "eyebrow": "Hackathon winner",
-    "oneLiner": "Best Google Cloud Hack, built on Vertex AI.",
-    "description": "An AI application built on Google Cloud that won Best Google Cloud Hack, combining managed models with a lightweight serverless backend.",
+    "oneLiner": "Best Google Cloud Hack for AI-driven features and clean architecture.",
+    "description": "A cloud-native application built on Google Cloud AI and ML services. Won Best Google Cloud Hack for its AI-driven functionality and clean cloud architecture.",
     "points": [
-      "Managed models on Google Cloud.",
-      "Serverless backend deployed with CI/CD.",
+      "Built on Google Cloud AI/ML services.",
+      "Clean cloud-native architecture.",
       "Won Best Google Cloud Hack."
     ],
     "hooks": [
       "Best Google Cloud Hack",
-      "Serverless",
-      "CI/CD"
+      "Cloud-native",
+      "AI/ML APIs"
     ],
     "tags": [
-      "Python",
-      "GCP",
-      "FastAPI",
-      "Docker"
+      "Google Cloud",
+      "AI/ML APIs"
     ],
     "href": "https://github.com/Spyder15",
     "repository": "https://github.com/Spyder15",
