@@ -32,8 +32,46 @@ function AskDemo() {
   )
 }
 
+// Boxes joined by arrows that draw in one after another, labelled per project.
+function flow(labels: readonly string[], result: string) {
+  const width = 104
+  const gap = 38
+  const total = labels.length * width + (labels.length - 1) * gap
+  const start = (600 - total) / 2
+  return function FlowDemo() {
+    return (
+      <>
+        {labels.map((label, index) => {
+          const x = start + index * (width + gap)
+          return (
+            <g key={label}>
+              <rect className="d-draw" pathLength={1} style={at(index * 0.7)} x={x} y="22" width={width} height="30" rx="15" />
+              <text className="d-fade demo-text" style={at(index * 0.7 + 0.3)} x={x + width / 2} y="41" textAnchor="middle">{label}</text>
+              {index < labels.length - 1 && (
+                <path className="d-draw demo-soft" pathLength={1} style={at(index * 0.7 + 0.5)} d={`M${x + width + 6} 37 H${x + width + gap - 6} M${x + width + gap - 12} 32 L${x + width + gap - 6} 37 L${x + width + gap - 12} 42`} />
+              )}
+            </g>
+          )
+        })}
+        <g className="d-pop" style={at(labels.length * 0.7 + 0.2)}>
+          <rect className="demo-strong" x="190" y="66" width="220" height="22" rx="11" />
+          <text className="demo-text" x="300" y="81" textAnchor="middle">{result}</text>
+        </g>
+      </>
+    )
+  }
+}
+
 const DEMOS: Record<string, { title: string, draw: () => ReactNode }> = {
+  'plutope-restaurant': { title: 'An order flows from table to kitchen to bill', draw: flow(['Table order', 'Kitchen', 'Billing', 'Analytics'], 'Real-time, per restaurant') },
+  'nft-minting': { title: 'A creator mints an NFT collection', draw: flow(['Connect wallet', 'Set metadata', 'Mint', 'Collection'], 'Smart-contract minting') },
+  'nft-certificate': { title: 'A certificate is issued as an NFT and verified', draw: flow(['Issue', 'Mint NFT', 'Share link', 'Verify'], 'Verifiable by anyone') },
+  zebraswap: { title: 'A swap routes through a liquidity pool', draw: flow(['Wallet', 'Swap', 'Liquidity pool', 'Settled'], 'DEX protocol') },
+  'polink-wallet': { title: 'A transaction is signed in the wallet and confirmed on chain', draw: flow(['Polink wallet', 'Sign', 'PolluxChain', 'Confirmed'], 'Security-first flow') },
   'support-chatbot': { title: 'A question answered with its sources', draw: AskDemo },
+  'gcloud-ai-app': { title: 'A request runs through a serverless AI backend', draw: flow(['Request', 'FastAPI', 'Cloud model', 'Answer'], 'Serverless on Google Cloud') },
+  'nexus-graph': { title: 'A path of introductions found through a graph', draw: flow(['You', 'Colleague', 'Expert', 'Skill match'], 'Shortest path found') },
+  'crypto-flow-radar': { title: 'Markets are scanned and trends confirmed', draw: flow(['Scan perps', 'EMA trend', 'Sector flow', 'FVG levels'], 'Confirmed setups') },
 }
 
 export function ProjectDemo({ projectId }: { projectId: string }) {
